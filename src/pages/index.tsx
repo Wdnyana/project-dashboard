@@ -1,14 +1,14 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { useEffect } from 'react'
+import { useRouter } from 'next/router'
 
 export default function Home() {
-  return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-center p-24 ${inter.className}`}
-    >
-      <h1>SETUP</h1>
-    </main>
-  )
+  const router = useRouter()
+
+  useEffect(() => {
+    if (router.isReady) {
+      router.push('authentication/login')
+    }
+  }, [router])
+
+  return null
 }
